@@ -1,39 +1,17 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang web của Fairy Tail</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
-        h1 { color: #333; }
-        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Chào mừng đến với trang web của mình! 👋</h1>
-        <p>Địa chỉ <strong>danhcan.github.io</strong> đã hoạt động.</p>
-        <p>Đây là nội dung được chạy từ GitHub Pages.</p>
-    
-<div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHCtSOGws8/pGudvwIU3_yer2hI4FK5yg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-
-
-
-
-
-
-
-
-</div>
-
-
-
-</body>
-</html>
+casinos.forEach(casino => {
+  const card = document.createElement("div");
+  card.className = "...";
+  card.innerHTML = `
+    <div class="flex flex-col md:flex-row ...">
+      <div class="flex-1">
+        <h3 class="text-2xl font-bold">${casino.name}</h3>
+        <p class="text-zinc-400">${casino.date} • ${casino.day}</p>
+      </div>
+      <div class="flex gap-3 ...">
+        <a href="#" target="_blank" class="...">🔗 Link 1</a>     ←←← Link 1 ở đây
+        <a href="#" target="_blank" class="...">🔗 Link 2</a>     ←←← Link 2 ở đây
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+});
