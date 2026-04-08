@@ -1,17 +1,101 @@
-casinos.forEach(casino => {
-  const card = document.createElement("div");
-  card.className = "...";
-  card.innerHTML = `
-    <div class="flex flex-col md:flex-row ...">
-      <div class="flex-1">
-        <h3 class="text-2xl font-bold">${casino.name}</h3>
-        <p class="text-zinc-400">${casino.date} • ${casino.day}</p>
-      </div>
-      <div class="flex gap-3 ...">
-        <a href="#" target="_blank" class="...">🔗 Link 1</a>     ←←← Link 1 ở đây
-        <a href="#" target="_blank" class="...">🔗 Link 2</a>     ←←← Link 2 ở đây
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANHKYGAME - Link Nhà Cái</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Segoe UI', system-ui, sans-serif; }
+    .neon-text { text-shadow: 0 0 20px #8b3dff, 0 0 40px #00c4cc; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 0 30px rgba(139, 61, 255, 0.5); }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen">
+
+  <header class="bg-black border-b border-purple-500 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-2xl flex items-center justify-center text-2xl">🎰</div>
+        <h1 class="text-3xl font-bold neon-text">DANHKYGAME</h1>
       </div>
     </div>
-  `;
-  container.appendChild(card);
-});
+  </header>
+
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold text-center mb-8">🏆 DANH SÁCH NHÀ CÁI</h2>
+    <div class="space-y-4" id="casino-list"></div>
+  </section>
+
+  <section class="bg-zinc-900 py-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-zinc-800 rounded-3xl p-6 text-center">
+        <h3 class="text-2xl font-bold mb-6">Liên Hệ Admin - Danh Phương Anh</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left text-sm">
+          <div class="flex items-center gap-3"><i class="fa-solid fa-user text-3xl text-purple-400"></i><div><p class="text-zinc-400">Tên</p><p class="font-semibold">Danh Phương Anh (Anhls90)</p></div></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-3xl text-cyan-400"></i><div><p class="text-zinc-400">Email</p><p class="font-semibold">Anhls90998877@gmail.com</p></div></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-3xl text-green-400"></i><div><p class="text-zinc-400">SĐT / Zalo</p><p class="font-semibold">0528314332</p></div></div>
+        </div>
+        <div class="mt-6 pt-6 border-t border-zinc-700 flex items-center gap-3 justify-center">
+          <i class="fa-solid fa-bank text-3xl text-amber-400"></i>
+          <div><p class="text-zinc-400 text-sm">Tài khoản ngân hàng</p><p class="font-semibold">150182000009493</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-6 text-center text-xs text-zinc-500">
+    © 2026 Danhkygame
+  </footer>
+
+  <script>
+    const casinos = [
+      { name: "F8BET",     date: "5.15.25", day: "T5",  link1: "#", link2: "#" },   // ← THAY LINK 1 & 2 Ở ĐÂY
+      { name: "Hi88",      date: "3.13.23", day: "T3",  link1: "#", link2: "#" },
+      { name: "NEW88",     date: "6.16.26", day: "CN",  link1: "#", link2: "#" },
+      { name: "789BET",    date: "6.16.26", day: "T7",  link1: "#", link2: "#" },
+      { name: "Moc Bai",   date: "5.15.25", day: "T7",  link1: "#", link2: "#" },
+      { name: "SHBET",     date: "7.17.27", day: "T7",  link1: "#", link2: "#" },
+      { name: "78WIN",     date: "18",      day: "T7",  link1: "#", link2: "#" },
+      { name: "Jun88v1",   date: "2.12.22", day: "CN",  link1: "#", link2: "#" },
+      { name: "Jun88v2",   date: "8.18.28", day: "CN",  link1: "#", link2: "#" },
+      { name: "J88",       date: "8",       day: "T2",  link1: "#", link2: "#" },
+      { name: "U88",       date: "1.10.20", day: "T6",  link1: "#", link2: "#" },
+      { name: "ABC8",      date: "",        day: "",    link1: "#", link2: "#" },
+      { name: "FLY88",     date: "15.26",   day: "T2",  link1: "#", link2: "#" },
+      { name: "89BET",     date: "9.25",    day: "T2",  link1: "#", link2: "#" },
+      { name: "RR88",      date: "7.17.27", day: "T6",  link1: "#", link2: "#" },
+      { name: "QQ88",      date: "8.18.28", day: "T2",  link1: "#", link2: "#" },
+      { name: "F168",      date: "1.11.21", day: "T4",  link1: "#", link2: "#" },
+      { name: "XX88",      date: "6.16.26", day: "T6",  link1: "#", link2: "#" },
+      { name: "789F",      date: "10.28",   day: "T2",  link1: "#", link2: "#" },
+      { name: "8KBET",     date: "9.23",    day: "T2",  link1: "#", link2: "#" },
+      { name: "GK88",      date: "9.19.29", day: "T2",  link1: "#", link2: "#" },
+      { name: "VSWIN",     date: "7.17.27", day: "T2",  link1: "#", link2: "#" },
+      { name: "Ok365",     date: "11.27",   day: "T2",  link1: "#", link2: "#" },
+      { name: "MM88",      date: "5.15.25", day: "Mỗi ngày", link1: "#", link2: "#" }
+    ];
+
+    const container = document.getElementById("casino-list");
+
+    casinos.forEach(casino => {
+      const card = document.createElement("div");
+      card.className = "bg-zinc-900 rounded-3xl p-6 card-hover transition-all duration-300 border border-zinc-800";
+      card.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold">${casino.name}</h3>
+            <p class="text-zinc-400">${casino.date} • ${casino.day}</p>
+          </div>
+          <div class="flex gap-3 w-full md:w-auto">
+            <a href="${casino.link1}" target="_blank" class="flex-1 md:flex-none bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-black font-bold py-4 px-8 rounded-2xl text-center transition">🔗 Link 1</a>
+            <a href="${casino.link2}" target="_blank" class="flex-1 md:flex-none bg-zinc-800 hover:bg-zinc-700 font-bold py-4 px-8 rounded-2xl text-center transition">🔗 Link 2</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
