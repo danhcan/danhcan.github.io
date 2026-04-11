@@ -1,101 +1,93 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DANHKYGAME - Link Nhà Cái</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    body { font-family: 'Segoe UI', system-ui, sans-serif; }
-    .neon-text { text-shadow: 0 0 20px #8b3dff, 0 0 40px #00c4cc; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 0 30px rgba(139, 61, 255, 0.5); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KM 58K</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .card { transition: all 0.25s ease; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.15); }
+    </style>
 </head>
-<body class="bg-zinc-950 text-white min-h-screen">
+<body class="bg-zinc-950 min-h-screen font-sans text-xs">
+    <div class="max-w-4xl mx-auto p-3">
+        <!-- Header Đen + Cam -->
+        <div class="flex items-center justify-center gap-3 bg-black py-4 rounded-3xl shadow-xl mb-6 border border-orange-500/30">
+            <i class="fa-solid fa-gift text-3xl text-orange-500"></i>
+            <h1 class="font-bold text-2xl tracking-wider text-white">KHUYẾN MÃI <span class="text-orange-500">58K</span></h1>
+        </div>
 
-  <header class="bg-black border-b border-purple-500 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-2xl flex items-center justify-center text-2xl">🎰</div>
-        <h1 class="text-3xl font-bold neon-text">DANHKYGAME</h1>
-      </div>
+        <!-- Grid Cards -->
+        <div id="promoGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- JS sẽ render -->
+        </div>
+
+        <div class="text-center text-[10px] text-zinc-500 mt-8">
+            Nhấn tên nhà cái hoặc nút MỞ để nhận thưởng • Khuyến mãi có thể thay đổi
+        </div>
     </div>
-  </header>
 
-  <section class="max-w-4xl mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold text-center mb-8">🏆 DANH SÁCH NHÀ CÁI</h2>
-    <div class="space-y-4" id="casino-list"></div>
-  </section>
+    <script>
+        const data = [
+            { name: "F8BET", urlTrang: "https://f8bet6.chat?r=4RRRPZZ", url58k: "https://ttkm-f8bet02.pages.dev/?promo_id=KM58", urlMo: "https://f8bet6.chat?r=4RRRPZZ", bonus58k: true, events: "5.15.25", weeklyRevenue: "T5" },
+            { name: "Hi88", urlTrang: "https://hi2055.com/Register?r=V4DLR5", url58k: "https://hi8ok.com/?promo_id=ND188", urlMo: "https://hi2055.com/Register?r=V4DLR5", bonus58k: true, events: "3.13.23", weeklyRevenue: "T3" },
+            { name: "789BET", urlTrang: "https://789121.plus/register?r=98RXLJ", url58k: "https://ttkm789bet04.pages.dev/", urlMo: "https://789121.plus/register?r=98RXLJ", bonus58k: true, events: "6.16.26", weeklyRevenue: "T5" },
+            { name: "MOCBAI", urlTrang: "https://hebeilice.com?r=PMM7QD", url58k: "https://ttkm-mb66okvip02.pages.dev", urlMo: "https://hebeilice.com?r=PMM7QD", bonus58k: true, events: "5.15.25", weeklyRevenue: "T7" },
+            { name: "78WIN", urlTrang: "https://www.78winc3.com/?af=chisacom", url58k: "https://daily78win.net/?promo_id=FREE78", urlMo: "https://www.78winc3.com/?af=chisacom", bonus58k: true, events: "18", weeklyRevenue: "T7" },
+            { name: "GG88", urlTrang: "https://www.gg8854.com/?id=298587710", url58k: "https://gg88-ttkm.tranie-dev.workers.dev/", urlMo: "https://www.gg8854.com/?id=298587710", bonus58k: true, events: "5.15.25", weeklyRevenue: "T5" },
+            { name: "SC888", urlTrang: "https://sc881.cc/?id=410008270", url58k: "https://sc8803.com/SC68K", urlMo: "https://sc881.cc/?id=410008270", bonus58k: true, events: "8.18.28", weeklyRevenue: "T5" },
+            { name: "CM88", urlTrang: "https://m.cm8868.com/?id=990907926", url58k: "https://khuyenmaicm88.com/?promo_id=CM58K", urlMo: "https://m.cm8868.com/?id=990907926", bonus58k: true, events: "7.17.27", weeklyRevenue: "T" },
+            { name: "FLY88", urlTrang: "https://fly88b.co/?id=538667579", url58k: "https://fly88code.net/?promo_id=FLY58", urlMo: "https://fly88b.co/?id=538667579", bonus58k: true, events: "2.12.22", weeklyRevenue: "" },
+            { name: "J88", urlTrang: "https://j882ea.site/Register?r=MRZQM3", url58k: "https://j8j88.com/", urlMo: "https://j882ea.site/Register?r=MRZQM3", bonus58k: true, events: "8.18.28", weeklyRevenue: "" },
+            { name: "U88", urlTrang: "https://u888288.xyz/Register?r=RJLV6J", url58k: "https://88u888.club/", urlMo: "https://u888288.xyz/Register?r=RJLV6J", bonus58k: true, events: "2.12.22", weeklyRevenue: "" },
+            { name: "JUN88", urlTrang: "https://www.jun888k6.top/?af=danhmn88", url58k: "https://trungtam.khuyenmaijun881.win/?promo_id=fr58", urlMo: "https://www.jun888k6.top/?af=danhmn88", bonus58k: true, events: "2.12.22", weeklyRevenue: "" }
+        ];
 
-  <section class="bg-zinc-900 py-10">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-zinc-800 rounded-3xl p-6 text-center">
-        <h3 class="text-2xl font-bold mb-6">Liên Hệ Admin - Danh Phương Anh</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left text-sm">
-          <div class="flex items-center gap-3"><i class="fa-solid fa-user text-3xl text-purple-400"></i><div><p class="text-zinc-400">Tên</p><p class="font-semibold">Danh Phương Anh (Anhls90)</p></div></div>
-          <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-3xl text-cyan-400"></i><div><p class="text-zinc-400">Email</p><p class="font-semibold">Anhls90998877@gmail.com</p></div></div>
-          <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-3xl text-green-400"></i><div><p class="text-zinc-400">SĐT / Zalo</p><p class="font-semibold">0528314332</p></div></div>
-        </div>
-        <div class="mt-6 pt-6 border-t border-zinc-700 flex items-center gap-3 justify-center">
-          <i class="fa-solid fa-bank text-3xl text-amber-400"></i>
-          <div><p class="text-zinc-400 text-sm">Tài khoản ngân hàng</p><p class="font-semibold">150182000009493</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+        function renderCards() {
+            const container = document.getElementById('promoGrid');
+            container.innerHTML = data.map(item => `
+                <div class="bg-white rounded-2xl shadow border border-zinc-200 overflow-hidden card">
+                    <!-- Header Đen + Cam -->
+                    <div class="px-4 py-3 bg-zinc-900 text-white flex items-center justify-between text-sm border-b border-orange-500/20">
+                        <div onclick="window.open('${item.urlTrang}', '_blank')" 
+                             class="font-bold cursor-pointer hover:text-orange-400 transition-colors">
+                            ${item.name}
+                        </div>
+                        ${item.bonus58k ? `
+                        <span onclick="window.open('${item.url58k}', '_blank')" 
+                              class="bg-orange-500 hover:bg-orange-600 text-black text-[10px] font-bold px-3 py-1 rounded-xl cursor-pointer active:scale-95 transition-all">
+                            58K
+                        </span>` : ''}
+                    </div>
 
-  <footer class="bg-black py-6 text-center text-xs text-zinc-500">
-    © 2026 Danhkygame
-  </footer>
+                    <!-- Body -->
+                    <div class="p-4 space-y-3">
+                        <button onclick="window.open('${item.urlMo}', '_blank')" 
+                                class="w-full bg-orange-500 hover:bg-orange-600 text-black font-semibold py-3 rounded-2xl text-sm active:scale-95 transition-all shadow-md">
+                            MỞ NGAY
+                        </button>
 
-  <script>
-    const casinos = [
-      { name: "F8BET",     date: "5.15.25", day: "T5",  link1: "#", link2: "#" },   // ← THAY LINK 1 & 2 Ở ĐÂY
-      { name: "Hi88",      date: "3.13.23", day: "T3",  link1: "#", link2: "#" },
-      { name: "NEW88",     date: "6.16.26", day: "CN",  link1: "#", link2: "#" },
-      { name: "789BET",    date: "6.16.26", day: "T7",  link1: "#", link2: "#" },
-      { name: "Moc Bai",   date: "5.15.25", day: "T7",  link1: "#", link2: "#" },
-      { name: "SHBET",     date: "7.17.27", day: "T7",  link1: "#", link2: "#" },
-      { name: "78WIN",     date: "18",      day: "T7",  link1: "#", link2: "#" },
-      { name: "Jun88v1",   date: "2.12.22", day: "CN",  link1: "#", link2: "#" },
-      { name: "Jun88v2",   date: "8.18.28", day: "CN",  link1: "#", link2: "#" },
-      { name: "J88",       date: "8",       day: "T2",  link1: "#", link2: "#" },
-      { name: "U88",       date: "1.10.20", day: "T6",  link1: "#", link2: "#" },
-      { name: "ABC8",      date: "",        day: "",    link1: "#", link2: "#" },
-      { name: "FLY88",     date: "15.26",   day: "T2",  link1: "#", link2: "#" },
-      { name: "89BET",     date: "9.25",    day: "T2",  link1: "#", link2: "#" },
-      { name: "RR88",      date: "7.17.27", day: "T6",  link1: "#", link2: "#" },
-      { name: "QQ88",      date: "8.18.28", day: "T2",  link1: "#", link2: "#" },
-      { name: "F168",      date: "1.11.21", day: "T4",  link1: "#", link2: "#" },
-      { name: "XX88",      date: "6.16.26", day: "T6",  link1: "#", link2: "#" },
-      { name: "789F",      date: "10.28",   day: "T2",  link1: "#", link2: "#" },
-      { name: "8KBET",     date: "9.23",    day: "T2",  link1: "#", link2: "#" },
-      { name: "GK88",      date: "9.19.29", day: "T2",  link1: "#", link2: "#" },
-      { name: "VSWIN",     date: "7.17.27", day: "T2",  link1: "#", link2: "#" },
-      { name: "Ok365",     date: "11.27",   day: "T2",  link1: "#", link2: "#" },
-      { name: "MM88",      date: "5.15.25", day: "Mỗi ngày", link1: "#", link2: "#" }
-    ];
+                        <div class="flex gap-2 text-[10px]">
+                            ${item.events ? `
+                            <div class="flex-1 bg-zinc-100 px-3 py-2 rounded-xl border border-zinc-200">
+                                <span class="text-zinc-500">Sự kiện:</span><br>
+                                <span class="font-semibold text-zinc-800">${item.events}</span>
+                            </div>` : ''}
+                            
+                            ${item.weeklyRevenue ? `
+                            <div class="flex-1 bg-orange-50 px-3 py-2 rounded-xl border border-orange-200">
+                                <span class="text-orange-600">Tuần:</span><br>
+                                <span class="font-bold text-orange-700">${item.weeklyRevenue}</span>
+                            </div>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    const container = document.getElementById("casino-list");
-
-    casinos.forEach(casino => {
-      const card = document.createElement("div");
-      card.className = "bg-zinc-900 rounded-3xl p-6 card-hover transition-all duration-300 border border-zinc-800";
-      card.innerHTML = `
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold">${casino.name}</h3>
-            <p class="text-zinc-400">${casino.date} • ${casino.day}</p>
-          </div>
-          <div class="flex gap-3 w-full md:w-auto">
-            <a href="${casino.link1}" target="_blank" class="flex-1 md:flex-none bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-black font-bold py-4 px-8 rounded-2xl text-center transition">🔗 Link 1</a>
-            <a href="${casino.link2}" target="_blank" class="flex-1 md:flex-none bg-zinc-800 hover:bg-zinc-700 font-bold py-4 px-8 rounded-2xl text-center transition">🔗 Link 2</a>
-          </div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>có 
+        window.onload = renderCards;
+    </script>
 </body>
 </html>
